@@ -1,0 +1,5 @@
+Things to test
+
+1. test if file exists
+2. test if output creates a csv file
+3. test all the validations from name to ratings

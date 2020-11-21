@@ -1,0 +1,4 @@
+parameters:
+    app.json_format: App\Services\FileFormats\JsonFormat
+    app.xml_format: App\Services\FileFormats\XmlFormat
+
