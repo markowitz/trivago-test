@@ -20,7 +20,11 @@ run composer install
 ./bin/console trivago:convert filename.json (whatever format you want to convert)
 ```
 
+## running tests
 
+```bash
+composer test
+```
 
 ## Things to note
 
