@@ -26,6 +26,10 @@ run composer install
 composer test
 ```
 
+## Improve Data Quality
+
+validation errors are stored in the /var/log/data_validation.log. To see the issues related to data validation and quality.
+
 ## Things to note
 
 add files to be convert in the var/in directory.
