@@ -2,13 +2,12 @@
 
 namespace App\Tests\Command;
 
-use App\Services\FileReader;
-use App\Services\FindFile;
 use App\Services\Validator;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
-use Symfony\Component\Finder\Finder;
+
+
 
 class ConvertCommandTest extends KernelTestCase
 {
@@ -76,7 +75,6 @@ class ConvertCommandTest extends KernelTestCase
                 ];
 
          $errors = Validator::validate($hotel);
-
         $this->assertTrue(count($errors) > 0);
 
     }

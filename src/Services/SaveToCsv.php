@@ -2,15 +2,16 @@
 
 namespace App\Services;
 
-use App\Entity\Hotel;
-use App\Services\ValidationUtils as Validate;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Validator\Validation;
-use Symfony\Component\Validator\Constraints as Assert;
-
+use Psr\Log\LoggerInterface;
 class SaveToCsv
 {
+    private $logger;
+
+    public function __construct(LoggerInterface $validationLogger)
+    {
+        $this->logger = $validationLogger;
+    }
 
     /**
      * this converts the array and save to csv
@@ -39,6 +40,15 @@ class SaveToCsv
 
             if (!count($errors) > 0) {
                 fputcsv($csv, $hotel);
+            } else {
+                $errMessages = [];
+                foreach($errors as $err) {
+                    $errMessages[] = [
+                        $err->getInvalidValue() => $err->getMessage()
+                    ];
+                }
+
+                $this->logger->info(json_encode($errMessages));
             }
 
         }
