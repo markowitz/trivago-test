@@ -23,13 +23,13 @@ class ConvertCommand extends Command
     protected function configure()
     {
         $this->setDescription('Convert input file to csv format');
-        $this->addArgument('input_file', InputArgument::REQUIRED, 'The filename to be converted');
+        $this->addArgument('file_input', InputArgument::REQUIRED, 'The filename to be converted');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        $result = $this->fileReader->build($input->getArgument('input_file'));
+        $result = $this->fileReader->build($input->getArgument('file_input'));
         if(!$result) {
             $output->writeln('Input File not found!');
 
